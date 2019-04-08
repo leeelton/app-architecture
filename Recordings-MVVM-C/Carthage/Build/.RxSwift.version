@@ -1,0 +1,29 @@
+{
+  "commitish" : "4.5.0",
+  "iOS" : [
+    {
+      "name" : "RxAtomic",
+      "hash" : "e721ffddeaa8773e6fe80dc464d64845e494048fef1dee0f663723c1e7abda06"
+    },
+    {
+      "name" : "RxBlocking",
+      "hash" : "b6852bce7cab3600ad1bdb252d1b4a511c8d2e39bb9246689d8b8a446800b320",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxTest",
+      "hash" : "66121d5ac38165566175a6ace3ea7931f3e68916c607932c5beccc856b4d6fdc",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "69c658b4c1aaeb4525a04bc7d5805bf09441e4878fed16996f4b205c90ffa8cc",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxSwift",
+      "hash" : "ed99427c90656c20a345792410230840a6ad7a66be6ea65d090b48b9492a6754",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    }
+  ]
+}

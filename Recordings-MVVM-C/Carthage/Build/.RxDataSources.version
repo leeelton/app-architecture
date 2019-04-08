@@ -1,0 +1,35 @@
+{
+  "commitish" : "3.1.0",
+  "iOS" : [
+    {
+      "name" : "RxBlocking",
+      "hash" : "368890a4b321934b775c9fde85bb2c8c1667fc72b057a9b445d3ac3c5dab6494",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxTest",
+      "hash" : "67e3eda23fcf5d9dd614562d48b05a3df9ef8514caf5831f4e44624da5a37f47",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "Differentiator",
+      "hash" : "adad77938b3d652a4350357f7805d1577f662b895a390e5998a4f467a49fd07b",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxDataSources",
+      "hash" : "f8fd4766c84ec5b324bb3915e01e9cb4fc4e1133e0a9b131805ba5ba506f0e46",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxCocoa",
+      "hash" : "4bbb49cea3f703ec796ec1a537d6b9b31b1fbdfb58d5a5a10fe7cb0cbdb7ed72",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    },
+    {
+      "name" : "RxSwift",
+      "hash" : "fcc18332e3435bed0b3dfc8b950d177eee4575aed27d4071f9403ca2a681c52f",
+      "swiftToolchainVersion" : "4.2.1 (swiftlang-1000.11.42 clang-1000.11.45.1)"
+    }
+  ]
+}
