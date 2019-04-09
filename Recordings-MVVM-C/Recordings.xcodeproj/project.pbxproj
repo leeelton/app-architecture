@@ -135,7 +135,8 @@
 				26A63174225CE58B001099A7 /* Folder */,
 			);
 			name = Scenes;
-			sourceTree = "<group>";
+			path = Recordings/Scenes;
+			sourceTree = SOURCE_ROOT;
 		};
 		26A63174225CE58B001099A7 /* Folder */ = {
 			isa = PBXGroup;
@@ -147,7 +148,8 @@
 				26A63175225CE650001099A7 /* RecordingTableViewCell.swift */,
 			);
 			name = Folder;
-			sourceTree = "<group>";
+			path = Recordings/Scenes/Folder;
+			sourceTree = SOURCE_ROOT;
 		};
 		8379F0C31F2F193F00CDB032 /* RecordingsTests */ = {
 			isa = PBXGroup;
