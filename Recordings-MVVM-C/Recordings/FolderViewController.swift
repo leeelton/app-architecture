@@ -16,12 +16,6 @@ class FolderViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		viewModel.navigationTitle.bind(to: rx.title).disposed(by: disposeBag)
-		viewModel.folderContents.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
-		tableView.rx.modelDeleted(Item.self)
-			.subscribe(onNext: { [unowned self] in self.viewModel.deleteItem($0) }).disposed(by: disposeBag)
-		tableView.rx.modelSelected(Item.self)
-			.subscribe(onNext: { [unowned self] in self.delegate?.didSelect($0) }).disposed(by: disposeBag)
 	}
 	
 	var dataSource: RxTableViewSectionedAnimatedDataSource<AnimatableSectionModel<Int, Item>> {
@@ -36,6 +30,16 @@ class FolderViewController: UITableViewController {
 				return true
 			}
 		)
+	}
+
+	// MARK: Setup
+	private func setupBindings() {
+		viewModel.navigationTitle.bind(to: rx.title).disposed(by: disposeBag)
+		viewModel.folderContents.bind(to: tableView.rx.items(dataSource: dataSource)).disposed(by: disposeBag)
+		tableView.rx.modelDeleted(Item.self)
+			.subscribe(onNext: { [unowned self] in self.viewModel.deleteItem($0) }).disposed(by: disposeBag)
+		tableView.rx.modelSelected(Item.self)
+			.subscribe(onNext: { [unowned self] in self.delegate?.didSelect($0) }).disposed(by: disposeBag)
 	}
 	
 	// MARK: Actions
@@ -63,7 +67,7 @@ class FolderViewController: UITableViewController {
 		if let uuidPath = coder.decodeObject(forKey: .uuidPathKey) as? [UUID], let folder = Store.shared.item(atUUIDPath: uuidPath) as? Folder {
 			self.viewModel.folder.value = folder
 		} else {
-			if var controllers = navigationController?.viewControllers, let index = controllers.index(where: { $0 === self }) {
+			if var controllers = navigationController?.viewControllers, let index = controllers.firstIndex(where: { $0 === self }) {
 				controllers.remove(at: index)
 				navigationController?.viewControllers = controllers
 			}
