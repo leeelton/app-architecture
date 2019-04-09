@@ -14,7 +14,7 @@ final class FolderViewController: UITableViewController {
 
 	weak var delegate: FolderViewControllerDelegate? = nil
 	
-	let viewModel = FolderViewModel()
+	var viewModel = FolderViewModel()
 	private let disposeBag = DisposeBag()
 
 	// MARK: Lifecycle

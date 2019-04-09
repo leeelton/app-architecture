@@ -43,7 +43,11 @@ extension Coordinator: FolderViewControllerDelegate {
 			let playerNC = storyboard.instantiatePlayerNavigationController(with: recording, leftBarButtonItem: splitViewController.displayModeButtonItem)
 			splitViewController.showDetailViewController(playerNC, sender: self)
 		case let folder as Folder:
-			let folderVC = storyboard.instantiateFolderViewController(with: folder, delegate: self)
+			let folderVC = FolderViewController(style: .plain)
+			folderVC.delegate = self
+			folderVC.viewModel = FolderViewModel(initialFolder: folder)
+			folderVC.navigationItem.leftItemsSupplementBackButton = true
+			folderVC.navigationItem.leftBarButtonItem = folderVC.editButtonItem
 			folderNavigationController.pushViewController(folderVC, animated: true)
 		default: fatalError()
 		}
@@ -72,15 +76,6 @@ extension UIStoryboard {
 		playerVC.navigationItem.leftBarButtonItem = leftBarButtonItem
 		playerVC.navigationItem.leftItemsSupplementBackButton = true
 		return playerNC
-	}
-	
-	func instantiateFolderViewController(with folder: Folder, delegate: FolderViewControllerDelegate) -> FolderViewController {
-		let folderVC = instantiateViewController(withIdentifier: "folderController") as! FolderViewController
-		folderVC.viewModel.folder.value = folder
-		folderVC.delegate = delegate
-		folderVC.navigationItem.leftItemsSupplementBackButton = true
-		folderVC.navigationItem.leftBarButtonItem = folderVC.editButtonItem
-		return folderVC
 	}
 	
 	func instantiateRecordViewController(with folder: Folder, delegate: RecordViewControllerDelegate) -> RecordViewController {
