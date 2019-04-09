@@ -1,54 +1,88 @@
 import Foundation
 import RxSwift
-import RxCocoa
 import RxDataSources
 
-class FolderViewModel {
+final class FolderViewModel {
+
+	// MARK: - Inputs
+
+	lazy var deleteObserver: AnyObserver<Item> = { _deletePublishSubject.asObserver() }()
+	lazy var createFolderObserver: AnyObserver<String> = { _createFolderPublishSubject.asObserver() }()
+	lazy var createRecordingObserver: AnyObserver<Void> = { _createRecordingPublishSubject.asObserver() }()
+
+	// MARK: - Outputs
+
+	// TODO: Remove this Variable
 	let folder: Variable<Folder>
-	private let folderUntilDeleted: Observable<Folder?>
-	
-	init(initialFolder: Folder = Store.shared.rootFolder) {
-		folder = Variable(initialFolder)
-		folderUntilDeleted = folder.asObservable()
-			// Every time the folder changes
+
+	lazy var folderObservable: Observable<Folder?> = {
+		return _folderBehaviorSubject
 			.flatMapLatest { currentFolder in
-				// Start by emitting the initial value
 				Observable.just(currentFolder)
-					// Re-emit the folder every time a non-delete change occurs
 					.concat(currentFolder.changeObservable.map { _ in currentFolder })
-					// Stop when a delete occurs
 					.takeUntil(currentFolder.deletedObservable)
-					// After a delete, set the current folder back to `nil`
 					.concat(Observable.just(nil))
 			}.share(replay: 1)
-	}
-	
-	func create(folderNamed name: String?) {
-		guard let s = name else { return }
-		let newFolder = Folder(name: s, uuid: UUID())
-		folder.value.add(newFolder)
-	}
-	
-	func deleteItem(_ item: Item) {
-		folder.value.remove(item)
-	}
-	
-	var navigationTitle: Observable<String> {
-		return folderUntilDeleted.map { folder in
+	}()
+
+	var navigationTitleObservable: Observable<String> {
+		return folderObservable.map { folder in
 			guard let f = folder else { return "" }
 			return f.parent == nil ? .recordings : f.name
 		}
 	}
-	
-	var folderContents: Observable<[AnimatableSectionModel<Int, Item>]> {
-		return folderUntilDeleted.map { folder in
+
+	var folderContentsObservable: Observable<[AnimatableSectionModel<Int, Item>]> {
+		return folderObservable.map { folder in
 			guard let f = folder else { return [AnimatableSectionModel(model: 0, items: [])] }
 			return [AnimatableSectionModel(model: 0, items: f.contents)]
 		}
 	}
-	
+
 	static func text(for item: Item) -> String {
 		return "\((item is Recording) ? "🔊" : "📁")  \(item.name)"
+	}
+
+	// MARK: - Navigation
+
+	lazy var goToRecordingObservable: Observable<Folder?> = {
+		return _createFolderPublishSubject
+			.withLatestFrom(folderObservable)
+	}()
+
+	private let disposeBag = DisposeBag()
+	private let _deletePublishSubject = PublishSubject<Item>()
+	private let _createFolderPublishSubject = PublishSubject<String>()
+	private let _createRecordingPublishSubject = PublishSubject<Void>()
+	private let _folderBehaviorSubject: BehaviorSubject<Folder>
+
+	init(initialFolder: Folder = Store.shared.rootFolder) {
+		_folderBehaviorSubject = BehaviorSubject(value: initialFolder)
+		folder = Variable(initialFolder)
+	}
+
+	private func setupBindings() {
+		_deletePublishSubject
+			.withLatestFrom(_folderBehaviorSubject) { ($0, $1) }
+			.subscribe(onNext: { (item, folder) in
+				folder.remove(item)
+			})
+			.disposed(by: disposeBag)
+
+		_createFolderPublishSubject
+			.withLatestFrom(_folderBehaviorSubject) { ($0, $1) }
+			.subscribe(onNext: { (name, folder) in
+				let newFolder = Folder(name: name, uuid: UUID())
+				folder.add(newFolder)
+			})
+			.disposed(by: disposeBag)
+	}
+
+	// TODO: Remove this
+	func create(folderNamed name: String?) {
+		guard let s = name else { return }
+		let newFolder = Folder(name: s, uuid: UUID())
+		folder.value.add(newFolder)
 	}
 }
 
