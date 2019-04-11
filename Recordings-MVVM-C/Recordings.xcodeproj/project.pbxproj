@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		26018AE1225D111900D065A5 /* FolderCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26018AE0225D111900D065A5 /* FolderCoordinator.swift */; };
+		266FC647225FAD50008A96F2 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266FC646225FAD50008A96F2 /* AppFlow.swift */; };
 		26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63175225CE650001099A7 /* RecordingTableViewCell.swift */; };
 		26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63177225CECD5001099A7 /* FolderTableViewCell.swift */; };
+		26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26FBA741225FAFEE0076F43E /* RxFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		26FBA748225FB21C0076F43E /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA747225FB21C0076F43E /* RootSplitViewController.swift */; };
 		830C5ACE1F011A7E004EFBA7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */; };
 		835F5B741F39C581006B1400 /* empty.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 835F5B731F39C269006B1400 /* empty.m4a */; };
 		C90B60971EC00343008C9347 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B60961EC00343008C9347 /* Store.swift */; };
@@ -58,6 +61,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */,
 				C9E89B391FCBC4AD00527150 /* RxDataSources.framework in CopyFiles */,
 				C9E89B3A1FCBC4AD00527150 /* RxSwift.framework in CopyFiles */,
 				C9E89B3B1FCBC4AD00527150 /* RxCocoa.framework in CopyFiles */,
@@ -69,8 +73,12 @@
 
 /* Begin PBXFileReference section */
 		26018AE0225D111900D065A5 /* FolderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCoordinator.swift; sourceTree = "<group>"; };
+		266FC646225FAD50008A96F2 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		26A63175225CE650001099A7 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		26A63177225CECD5001099A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		26FBA741225FAFEE0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
+		26FBA743225FB03F0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
+		26FBA747225FB21C0076F43E /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		835F5B731F39C269006B1400 /* empty.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty.m4a; sourceTree = "<group>"; };
 		8379F0C21F2F193F00CDB032 /* RecordingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,7 +140,11 @@
 		26A63173225CE57F001099A7 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				26FBA74B225FB3190076F43E /* App */,
+				26FBA746225FB1F10076F43E /* RootSplit */,
 				26A63174225CE58B001099A7 /* Folder */,
+				26FBA749225FB2BC0076F43E /* Recording */,
+				26FBA74A225FB2EC0076F43E /* Player */,
 			);
 			name = Scenes;
 			path = Recordings/Scenes;
@@ -151,6 +163,64 @@
 			path = Recordings/Scenes/Folder;
 			sourceTree = SOURCE_ROOT;
 		};
+		26FBA746225FB1F10076F43E /* RootSplit */ = {
+			isa = PBXGroup;
+			children = (
+				26FBA747225FB21C0076F43E /* RootSplitViewController.swift */,
+			);
+			path = RootSplit;
+			sourceTree = "<group>";
+		};
+		26FBA749225FB2BC0076F43E /* Recording */ = {
+			isa = PBXGroup;
+			children = (
+				C9D1859B1EC02D830028C0FA /* RecordViewController.swift */,
+				C9F90CE01FD500B50054FEF4 /* RecordViewModel.swift */,
+			);
+			path = Recording;
+			sourceTree = "<group>";
+		};
+		26FBA74A225FB2EC0076F43E /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				C9EB56C41EAE33C1000EC5F4 /* PlayViewController.swift */,
+				C9F90CDE1FD500A80054FEF4 /* PlayViewModel.swift */,
+			);
+			path = Player;
+			sourceTree = "<group>";
+		};
+		26FBA74B225FB3190076F43E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C9EB56C01EAE33C1000EC5F4 /* AppDelegate.swift */,
+				266FC646225FAD50008A96F2 /* AppFlow.swift */,
+				830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		26FBA74C225FB32E0076F43E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C90B60961EC00343008C9347 /* Store.swift */,
+				C9CFB0341EC09427004529FC /* Item.swift */,
+				C9F90CDA1FD4E4A30054FEF4 /* Item+Rx.swift */,
+				C9CFB0361EC0945B004529FC /* Recording.swift */,
+				C9CFB0381EC09464004529FC /* Folder.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		26FBA74D225FB3510076F43E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				C9CFB0311EC08D7E004529FC /* Player.swift */,
+				C9CFB02D1EC085CF004529FC /* Recorder.swift */,
+				C9CFB02F1EC08ACF004529FC /* Utilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		8379F0C31F2F193F00CDB032 /* RecordingsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -164,6 +234,7 @@
 		83AEA62C1F7A46280006D1FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26FBA741225FAFEE0076F43E /* RxFlow.framework */,
 				C9E89B311FCBC49800527150 /* RxCocoa.framework */,
 				C9E89B2F1FCBC49800527150 /* RxDataSources.framework */,
 				C9E89B301FCBC49800527150 /* RxSwift.framework */,
@@ -173,44 +244,10 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		C9CFB02C1EC085B2004529FC /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				C9CFB0311EC08D7E004529FC /* Player.swift */,
-				C9CFB02D1EC085CF004529FC /* Recorder.swift */,
-				C9CFB02F1EC08ACF004529FC /* Utilities.swift */,
-			);
-			name = Helpers;
-			sourceTree = "<group>";
-		};
-		C9CFB0331EC09411004529FC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				C90B60961EC00343008C9347 /* Store.swift */,
-				C9CFB0341EC09427004529FC /* Item.swift */,
-				C9F90CDA1FD4E4A30054FEF4 /* Item+Rx.swift */,
-				C9CFB0361EC0945B004529FC /* Recording.swift */,
-				C9CFB0381EC09464004529FC /* Folder.swift */,
-			);
-			name = Model;
-			sourceTree = "<group>";
-		};
-		C9CFB03A1EC09B12004529FC /* App+Views */ = {
-			isa = PBXGroup;
-			children = (
-				C9EB56C01EAE33C1000EC5F4 /* AppDelegate.swift */,
-				830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */,
-				C9EB56C41EAE33C1000EC5F4 /* PlayViewController.swift */,
-				C9F90CDE1FD500A80054FEF4 /* PlayViewModel.swift */,
-				C9D1859B1EC02D830028C0FA /* RecordViewController.swift */,
-				C9F90CE01FD500B50054FEF4 /* RecordViewModel.swift */,
-			);
-			name = "App+Views";
-			sourceTree = "<group>";
-		};
 		C9EB56B41EAE33C1000EC5F4 = {
 			isa = PBXGroup;
 			children = (
+				26FBA743225FB03F0076F43E /* RxFlow.framework */,
 				C9E89B381FCBC4AD00527150 /* RxCocoa.framework */,
 				C9E89B361FCBC4AC00527150 /* RxDataSources.framework */,
 				C9E89B501FCBC67100527150 /* Differentiator.framework */,
@@ -238,9 +275,8 @@
 			isa = PBXGroup;
 			children = (
 				26A63173225CE57F001099A7 /* Scenes */,
-				C9CFB03A1EC09B12004529FC /* App+Views */,
-				C9CFB0331EC09411004529FC /* Model */,
-				C9CFB02C1EC085B2004529FC /* Helpers */,
+				26FBA74C225FB32E0076F43E /* Models */,
+				26FBA74D225FB3510076F43E /* Helpers */,
 				C9EB56C91EAE33C1000EC5F4 /* Assets.xcassets */,
 				C9EB56C61EAE33C1000EC5F4 /* Main.storyboard */,
 				C9EB56CB1EAE33C1000EC5F4 /* LaunchScreen.storyboard */,
@@ -376,11 +412,13 @@
 				830C5ACE1F011A7E004EFBA7 /* Coordinator.swift in Sources */,
 				C9EB56C11EAE33C1000EC5F4 /* AppDelegate.swift in Sources */,
 				C9F90CE11FD500B50054FEF4 /* RecordViewModel.swift in Sources */,
+				266FC647225FAD50008A96F2 /* AppFlow.swift in Sources */,
 				26018AE1225D111900D065A5 /* FolderCoordinator.swift in Sources */,
 				26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */,
 				C9CFB0371EC0945B004529FC /* Recording.swift in Sources */,
 				C9F90CDF1FD500A80054FEF4 /* PlayViewModel.swift in Sources */,
 				C9F90CDD1FD5009D0054FEF4 /* FolderViewModel.swift in Sources */,
+				26FBA748225FB21C0076F43E /* RootSplitViewController.swift in Sources */,
 				C9F90CDB1FD4E4A30054FEF4 /* Item+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

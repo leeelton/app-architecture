@@ -1,5 +1,7 @@
 import UIKit
 import AVFoundation
+import RxFlow
+import RxSwift
 
 
 @UIApplicationMain
@@ -7,8 +9,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 	
 	var window: UIWindow?
 	var coordinator: Coordinator? = nil
+
+	var flowCoordinator = FlowCoordinator()
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+
 		let splitViewController = window!.rootViewController as! UISplitViewController
 		splitViewController.delegate = self
 		splitViewController.preferredDisplayMode = .allVisible
