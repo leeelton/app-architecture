@@ -12,7 +12,7 @@ final class RecordingView: UIView {
 	let recordingLabel = UILabel()
 	let timeLabel = UILabel()
 	let stopButton = UIButton()
-	private let contentView = UIView()
+	private var contentView: UIView!
 	private let stackView = UIStackView()
 	private var contentViewConstraints: [NSLayoutConstraint] {
 		return [
@@ -33,6 +33,8 @@ final class RecordingView: UIView {
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
+		let contentView = UIView(frame: frame)
+		self.contentView = contentView
 		contentView.translatesAutoresizingMaskIntoConstraints = false
 		stackView.translatesAutoresizingMaskIntoConstraints = false
 		addSubview(contentView)
