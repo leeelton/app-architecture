@@ -10,19 +10,21 @@ protocol RecordViewControllerDelegate: class {
 final class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 	let viewModel = RecordViewModel()
 	let disposeBag = DisposeBag()
-	
-	@IBOutlet var timeLabel: UILabel!
-	@IBOutlet var stopButton: UIButton!
+
+	var recordView: RecordingView!
 
 	weak var delegate: RecordViewControllerDelegate!
 	var audioRecorder: Recorder?
+
+	override func loadView() {
+		let newView = RecordingView(frame: UIScreen.main.bounds)
+		view = newView
+		recordView = newView
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		viewModel.timeLabelText.bind(to: timeLabel.rx.text).disposed(by: disposeBag)
-		viewModel.dismiss = { [unowned self] in
-			self.dismiss(animated: true)
-		}
+		setupBindings()
 	}
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -37,13 +39,23 @@ final class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 			delegate.finishedRecording(self)
 		}
 	}
-	
-	@IBAction func stop(_ sender: Any) {
-		audioRecorder?.stop()
-		modalTextAlert(title: .saveRecording, accept: .save, placeholder: .nameForRecording) { string in
-			self.viewModel.recordingStopped(title: string)
-			self.delegate.finishedRecording(self)
-		}
+
+	private func setupBindings() {
+		viewModel.timeLabelText
+			.bind(to: recordView.timeLabel.rx.text)
+			.disposed(by: disposeBag)
+
+		recordView.stopButton
+			.rx
+			.tap
+			.subscribe(onNext: { [unowned self] _ in
+				self.audioRecorder?.stop()
+				self.modalTextAlert(title: .saveRecording, accept: .save, placeholder: .nameForRecording) { string in
+					self.viewModel.recordingStopped(title: string)
+					self.delegate.finishedRecording(self)
+				}
+			})
+			.disposed(by: disposeBag)
 	}
 }
 

@@ -20,16 +20,11 @@ final class RecordViewModel {
 	func recorderStateChanged(time: TimeInterval?) {
 		if let t = time {
 			duration.value = t
-		} else {
-			dismiss?()
 		}
-
 	}
 	
 	// Outputs
 	var timeLabelText: Observable<String?> {
 		return duration.asObservable().map(timeString)
 	}
-	
-	var dismiss: (() -> ())?
 }

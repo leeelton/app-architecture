@@ -5,6 +5,7 @@ import RxDataSources
 
 protocol FolderViewControllerDelegate: class {
 	func didSelect(_ item: Item)
+	func createRecording(in folder: Folder)
 }
 
 final class FolderViewController: UITableViewController {
@@ -84,6 +85,14 @@ final class FolderViewController: UITableViewController {
 			.rx
 			.tap
 			.bind(to: viewModel.createRecordingObserver)
+			.disposed(by: disposeBag)
+
+		addRecordingBarButtonItem
+			.rx
+			.tap
+			.subscribe(onNext: { [unowned self] (_) in
+				self.delegate?.createRecording(in: self.viewModel.folder.value)
+			})
 			.disposed(by: disposeBag)
 	}
 	

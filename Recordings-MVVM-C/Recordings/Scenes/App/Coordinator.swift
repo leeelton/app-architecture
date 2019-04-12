@@ -54,7 +54,9 @@ extension Coordinator: FolderViewControllerDelegate {
 	}
 	
 	func createRecording(in folder: Folder) {
-		let recordVC = storyboard.instantiateRecordViewController(with: folder, delegate: self)
+		let recordVC = RecordViewController()
+		recordVC.delegate = self
+		recordVC.viewModel.folder = folder
 		recordVC.modalPresentationStyle = .formSheet
 		recordVC.modalTransitionStyle = .crossDissolve
 		splitViewController.present(recordVC, animated: true)

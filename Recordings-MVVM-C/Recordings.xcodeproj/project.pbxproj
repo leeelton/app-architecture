@@ -13,6 +13,8 @@
 		26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63177225CECD5001099A7 /* FolderTableViewCell.swift */; };
 		26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26FBA741225FAFEE0076F43E /* RxFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26FBA748225FB21C0076F43E /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA747225FB21C0076F43E /* RootSplitViewController.swift */; };
+		26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA74E225FB5540076F43E /* RecordingView.swift */; };
+		26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA750225FB7C70076F43E /* UIColor+Extension.swift */; };
 		830C5ACE1F011A7E004EFBA7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */; };
 		835F5B741F39C581006B1400 /* empty.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 835F5B731F39C269006B1400 /* empty.m4a */; };
 		C90B60971EC00343008C9347 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B60961EC00343008C9347 /* Store.swift */; };
@@ -79,6 +81,8 @@
 		26FBA741225FAFEE0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		26FBA743225FB03F0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		26FBA747225FB21C0076F43E /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
+		26FBA74E225FB5540076F43E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
+		26FBA750225FB7C70076F43E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		835F5B731F39C269006B1400 /* empty.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty.m4a; sourceTree = "<group>"; };
 		8379F0C21F2F193F00CDB032 /* RecordingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,6 +178,7 @@
 		26FBA749225FB2BC0076F43E /* Recording */ = {
 			isa = PBXGroup;
 			children = (
+				26FBA74E225FB5540076F43E /* RecordingView.swift */,
 				C9D1859B1EC02D830028C0FA /* RecordViewController.swift */,
 				C9F90CE01FD500B50054FEF4 /* RecordViewModel.swift */,
 			);
@@ -217,6 +222,7 @@
 				C9CFB0311EC08D7E004529FC /* Player.swift */,
 				C9CFB02D1EC085CF004529FC /* Recorder.swift */,
 				C9CFB02F1EC08ACF004529FC /* Utilities.swift */,
+				26FBA750225FB7C70076F43E /* UIColor+Extension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -402,6 +408,7 @@
 				C9CFB02E1EC085CF004529FC /* Recorder.swift in Sources */,
 				C9CFB0351EC09427004529FC /* Item.swift in Sources */,
 				C90B60971EC00343008C9347 /* Store.swift in Sources */,
+				26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */,
 				C9CFB0301EC08ACF004529FC /* Utilities.swift in Sources */,
 				C9CFB0391EC09464004529FC /* Folder.swift in Sources */,
 				26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */,
@@ -415,6 +422,7 @@
 				266FC647225FAD50008A96F2 /* AppFlow.swift in Sources */,
 				26018AE1225D111900D065A5 /* FolderCoordinator.swift in Sources */,
 				26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */,
+				26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */,
 				C9CFB0371EC0945B004529FC /* Recording.swift in Sources */,
 				C9F90CDF1FD500A80054FEF4 /* PlayViewModel.swift in Sources */,
 				C9F90CDD1FD5009D0054FEF4 /* FolderViewModel.swift in Sources */,

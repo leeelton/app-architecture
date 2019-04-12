@@ -182,64 +182,6 @@
             </objects>
             <point key="canvasLocation" x="972" y="-719"/>
         </scene>
-        <!--Recording-->
-        <scene sceneID="TUs-A9-dxu">
-            <objects>
-                <viewController storyboardIdentifier="recorderViewController" title="Recording" id="WXX-ch-aQF" customClass="RecordViewController" customModule="Recordings" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="8Dr-KA-cVd"/>
-                        <viewControllerLayoutGuide type="bottom" id="mUl-5T-dnq"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ATN-lH-Mkj">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ZId-CY-aQq">
-                                <rect key="frame" x="16" y="281" width="343" height="105"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RM3-DW-ehi">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ayx-G4-cbf">
-                                        <rect key="frame" x="0.0" y="30.5" width="343" height="31.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pig-mZ-Loi">
-                                        <rect key="frame" x="0.0" y="72" width="343" height="33"/>
-                                        <color key="backgroundColor" red="0.95211482048034668" green="0.67795038223266602" blue="0.33723476529121399" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <state key="normal" title="Stop">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="stop:" destination="WXX-ch-aQF" eventType="touchUpInside" id="pKq-kD-ty0"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="ZId-CY-aQq" firstAttribute="leading" secondItem="ATN-lH-Mkj" secondAttribute="leadingMargin" id="FlI-sd-6O5"/>
-                            <constraint firstItem="ZId-CY-aQq" firstAttribute="centerY" secondItem="ATN-lH-Mkj" secondAttribute="centerY" id="INh-YK-H7N"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="ZId-CY-aQq" secondAttribute="trailing" id="P5T-d3-9al"/>
-                            <constraint firstItem="ZId-CY-aQq" firstAttribute="centerX" secondItem="ATN-lH-Mkj" secondAttribute="centerX" id="kYx-Bf-MEd"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="stopButton" destination="pig-mZ-Loi" id="tKd-MD-ZzW"/>
-                        <outlet property="timeLabel" destination="Ayx-G4-cbf" id="Ykl-ux-gFr"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vsy-wf-fUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1857" y="-720"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="HlL-yQ-YAb">
             <objects>
