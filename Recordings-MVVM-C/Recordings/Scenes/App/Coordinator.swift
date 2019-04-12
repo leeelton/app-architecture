@@ -7,17 +7,17 @@ final class Coordinator {
 	var folderNavigationController: UINavigationController {
 		return splitViewController.viewControllers[0] as! UINavigationController
 	}
-	
+
 	init(_ splitView: UISplitViewController) {
 		self.splitViewController = splitView
 		self.splitViewController.loadViewIfNeeded()
-		
+
 		let folderVC = folderNavigationController.viewControllers.first as! FolderViewController
 		folderVC.delegate = self
 		folderVC.viewModel.folder.value = Store.shared.rootFolder
 		folderVC.navigationItem.leftItemsSupplementBackButton = true
 		folderVC.navigationItem.leftBarButtonItem = folderVC.editButtonItem
-		
+
 		NotificationCenter.default.addObserver(self, selector: #selector(handleChangeNotification(_:)), name: Store.changedNotification, object: nil)
 	}
 	

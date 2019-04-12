@@ -11,6 +11,7 @@
 		266FC647225FAD50008A96F2 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266FC646225FAD50008A96F2 /* AppFlow.swift */; };
 		26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63175225CE650001099A7 /* RecordingTableViewCell.swift */; };
 		26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63177225CECD5001099A7 /* FolderTableViewCell.swift */; };
+		26CC3E4A22610AC30099044B /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC3E4922610AC30099044B /* PlayView.swift */; };
 		26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26FBA741225FAFEE0076F43E /* RxFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26FBA748225FB21C0076F43E /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA747225FB21C0076F43E /* RootSplitViewController.swift */; };
 		26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA74E225FB5540076F43E /* RecordingView.swift */; };
@@ -78,6 +79,7 @@
 		266FC646225FAD50008A96F2 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		26A63175225CE650001099A7 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		26A63177225CECD5001099A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		26CC3E4922610AC30099044B /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
 		26FBA741225FAFEE0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		26FBA743225FB03F0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		26FBA747225FB21C0076F43E /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 		26FBA74A225FB2EC0076F43E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				26CC3E4922610AC30099044B /* PlayView.swift */,
 				C9EB56C41EAE33C1000EC5F4 /* PlayViewController.swift */,
 				C9F90CDE1FD500A80054FEF4 /* PlayViewModel.swift */,
 			);
@@ -423,6 +426,7 @@
 				26018AE1225D111900D065A5 /* FolderCoordinator.swift in Sources */,
 				26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */,
 				26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */,
+				26CC3E4A22610AC30099044B /* PlayView.swift in Sources */,
 				C9CFB0371EC0945B004529FC /* Recording.swift in Sources */,
 				C9F90CDF1FD500A80054FEF4 /* PlayViewModel.swift in Sources */,
 				C9F90CDD1FD5009D0054FEF4 /* FolderViewModel.swift in Sources */,

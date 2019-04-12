@@ -9,6 +9,10 @@ import UIKit
 
 extension UIColor {
 	class var oranji: UIColor {
-		return UIColor(red: 255.0/255.0, green: 169.0/255.0, blue: 65.0/255.0, alpha: 1.0)
+		return UIColor(red: 243.0/255.0, green: 173.0/255.0, blue: 86.0/255.0, alpha: 1.0)
+	}
+
+	class var bloo: UIColor {
+		return UIColor(red: 15.0/255, green: 125.0/255, blue: 210.0/255, alpha: 1.0)
 	}
 }
