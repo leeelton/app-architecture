@@ -1,8 +1,10 @@
 import Foundation
 import RxSwift
 import RxDataSources
+import RxCocoa
+import RxFlow
 
-final class FolderViewModel {
+final class FolderViewModel: Stepper {
 
 	// MARK: - Inputs
 
@@ -84,9 +86,12 @@ final class FolderViewModel {
 		let newFolder = Folder(name: s, uuid: UUID())
 		folder.value.add(newFolder)
 	}
+
+	// RxFlow
+
+	let steps = PublishRelay<Step>()
 }
 
 fileprivate extension String {
 	static let recordings = NSLocalizedString("Recordings", comment: "Heading for the list of recorded audio items and folders.")
 }
-
