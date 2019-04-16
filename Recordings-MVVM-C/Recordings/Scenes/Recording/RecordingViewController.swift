@@ -3,17 +3,12 @@ import AVFoundation
 import RxSwift
 import RxCocoa
 
-protocol RecordViewControllerDelegate: class {
-	func finishedRecording(_ recordVC: RecordViewController)
-}
-
-final class RecordViewController: UIViewController, AVAudioRecorderDelegate {
-	let viewModel = RecordViewModel()
+final class RecordingViewController: UIViewController, AVAudioRecorderDelegate {
+	let viewModel = RecordingViewModel()
 	let disposeBag = DisposeBag()
 
 	var recordView: RecordingView!
 
-	weak var delegate: RecordViewControllerDelegate!
 	var audioRecorder: Recorder?
 
 	override func loadView() {
@@ -32,11 +27,9 @@ final class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 		
 		audioRecorder = viewModel.folder?.store?.fileURL(for: viewModel.recording).flatMap { url in
 			Recorder(url: url) { [unowned self] time in
-				self.viewModel.recorderStateChanged(time: time)
+				guard let time = time else { return }
+				self.viewModel.updateTime.onNext(time)
 			}
-		}
-		if audioRecorder == nil {
-			delegate.finishedRecording(self)
 		}
 	}
 
@@ -51,8 +44,7 @@ final class RecordViewController: UIViewController, AVAudioRecorderDelegate {
 			.subscribe(onNext: { [unowned self] _ in
 				self.audioRecorder?.stop()
 				self.modalTextAlert(title: .saveRecording, accept: .save, placeholder: .nameForRecording) { string in
-					self.viewModel.recordingStopped(title: string)
-					self.delegate.finishedRecording(self)
+					self.viewModel.saveRecordingWithTitleObserver.onNext(string)
 				}
 			})
 			.disposed(by: disposeBag)

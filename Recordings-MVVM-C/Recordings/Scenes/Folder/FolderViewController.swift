@@ -3,17 +3,10 @@ import RxSwift
 import RxCocoa
 import RxDataSources
 
-protocol FolderViewControllerDelegate: class {
-	func didSelect(_ item: Item)
-	func createRecording(in folder: Folder)
-}
-
 final class FolderViewController: UITableViewController {
 
 	let addFolderBarButtonItem = UIBarButtonItem(barButtonSystemItem: .organize, target: nil, action: nil)
 	let addRecordingBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: nil, action: nil)
-
-	weak var delegate: FolderViewControllerDelegate? = nil
 	
 	var viewModel = FolderViewModel()
 	private let disposeBag = DisposeBag()
@@ -87,14 +80,6 @@ final class FolderViewController: UITableViewController {
 			.tap
 			.bind(to: viewModel.createRecordingObserver)
 			.disposed(by: disposeBag)
-
-		addRecordingBarButtonItem
-			.rx
-			.tap
-			.subscribe(onNext: { [unowned self] (_) in
-				self.delegate?.createRecording(in: self.viewModel.folder.value)
-			})
-			.disposed(by: disposeBag)
 	}
 	
 	// MARK: UIStateRestoring
@@ -121,7 +106,7 @@ private extension Reactive where Base: FolderViewController {
 	var modalTextAlert: Binder<Void> {
 		return Binder<Void>(self.base, binding: { (folderViewController, _) in
 			folderViewController.modalTextAlert(title: .createFolder, accept: .create, placeholder: .folderName) { string in
-				folderViewController.viewModel.create(folderNamed: string)
+				folderViewController.viewModel.createFolderObserver.onNext(string)
 				folderViewController.dismiss(animated: true)
 			}
 		})

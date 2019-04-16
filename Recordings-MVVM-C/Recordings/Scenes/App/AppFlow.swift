@@ -47,6 +47,8 @@ class AppFlow: Flow {
 		folderNavigationController.navigationBar.barTintColor = UIColor.bloo
 		folderNavigationController.navigationBar.isTranslucent = false
 		folderNavigationController.navigationBar.tintColor = UIColor.oranji
+		folderViewController.navigationItem.leftItemsSupplementBackButton = true
+		folderViewController.navigationItem.leftBarButtonItem = folderViewController.editButtonItem
 		rootViewController.viewControllers = [folderNavigationController]
 		rootViewController.delegate = self
 		rootViewController.preferredDisplayMode = .allVisible
@@ -58,13 +60,14 @@ class AppFlow: Flow {
 	}
 
 	private func navigateToPlayer(recording: Recording) -> FlowContributors {
-		let playerViewController = PlayViewController()
+		let playerViewController = PlayerViewController()
 		let playerNavigationController = UINavigationController(rootViewController: playerViewController)
 		playerNavigationController.navigationBar.titleTextAttributes = [
 			NSAttributedString.Key.foregroundColor: UIColor.white
 		]
 		playerNavigationController.navigationBar.barTintColor = UIColor.bloo
 		playerNavigationController.navigationBar.isTranslucent = false
+		playerNavigationController.navigationBar.tintColor = UIColor.oranji
 		playerViewController.viewModel.recording.value = recording
 		playerViewController.navigationItem.leftBarButtonItem = rootViewController.displayModeButtonItem
 		playerViewController.navigationItem.leftItemsSupplementBackButton = true
@@ -76,7 +79,7 @@ class AppFlow: Flow {
 
 extension AppFlow: UISplitViewControllerDelegate {
 	func splitViewController(_ splitViewController: UISplitViewController, collapseSecondary secondaryViewController: UIViewController, onto primaryViewController: UIViewController) -> Bool {
-		guard let topAsDetailController = (secondaryViewController as? UINavigationController)?.topViewController as? PlayViewController else { return false }
+		guard let topAsDetailController = (secondaryViewController as? UINavigationController)?.topViewController as? PlayerViewController else { return false }
 		if topAsDetailController.viewModel.recording.value == nil {
 			// Don't include an empty player in the navigation stack when collapsed
 			return true
