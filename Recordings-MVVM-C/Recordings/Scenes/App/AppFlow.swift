@@ -5,7 +5,6 @@
 //  Created by elton.lee on 4/11/19.
 //
 
-import Foundation
 import RxSwift
 import RxFlow
 import RxCocoa
@@ -13,6 +12,7 @@ import UIKit
 
 enum AppSteps: Step {
 	case home
+	case player(recording: Recording)
 }
 
 class AppFlow: Flow {
@@ -21,21 +21,8 @@ class AppFlow: Flow {
 		return rootViewController
 	}
 
-	private lazy var rootViewController: UISplitViewController = {
-		let splitViewController = UISplitViewController()
-		let folderViewController = FolderViewController(style: .plain)
-		let folderNavigationController = UINavigationController(rootViewController: folderViewController)
-		folderNavigationController.navigationBar.titleTextAttributes = [
-			NSAttributedString.Key.foregroundColor: UIColor.white
-		]
-		folderNavigationController.navigationBar.barTintColor = UIColor.bloo
-		folderNavigationController.navigationBar.isTranslucent = false
-		folderNavigationController.navigationBar.tintColor = UIColor.oranji
-		splitViewController.viewControllers = [folderNavigationController]
-		return splitViewController
-	}()
-
-	private var window: UIWindow
+	private let rootViewController = UISplitViewController()
+	private let window: UIWindow
 
 	init(window: UIWindow) {
 		self.window = window
@@ -46,16 +33,43 @@ class AppFlow: Flow {
 		switch step {
 		case .home:
 			return navigateToHome()
+		case .player(let recording):
+			return navigateToPlayer(recording: recording)
 		}
 	}
 
 	private func navigateToHome() -> FlowContributors {
-		guard let folderViewController = rootViewController.children.first?.children.first as? FolderViewController else { return .none }
+		let folderViewController = FolderViewController(style: .plain)
+		let folderNavigationController = UINavigationController(rootViewController: folderViewController)
+		folderNavigationController.navigationBar.titleTextAttributes = [
+			NSAttributedString.Key.foregroundColor: UIColor.white
+		]
+		folderNavigationController.navigationBar.barTintColor = UIColor.bloo
+		folderNavigationController.navigationBar.isTranslucent = false
+		folderNavigationController.navigationBar.tintColor = UIColor.oranji
+		rootViewController.viewControllers = [folderNavigationController]
 		rootViewController.delegate = self
 		rootViewController.preferredDisplayMode = .allVisible
 		window.rootViewController = rootViewController
 		window.makeKeyAndVisible()
-		return .one(flowContributor: .contribute(withNextPresentable: folderViewController, withNextStepper: folderViewController.viewModel))
+
+		let folderFlow = FolderFlow(navigationController: folderNavigationController)
+		return .one(flowContributor: .contribute(withNextPresentable: folderFlow, withNextStepper: folderViewController.viewModel))
+	}
+
+	private func navigateToPlayer(recording: Recording) -> FlowContributors {
+		let playerViewController = PlayViewController()
+		let playerNavigationController = UINavigationController(rootViewController: playerViewController)
+		playerNavigationController.navigationBar.titleTextAttributes = [
+			NSAttributedString.Key.foregroundColor: UIColor.white
+		]
+		playerNavigationController.navigationBar.barTintColor = UIColor.bloo
+		playerNavigationController.navigationBar.isTranslucent = false
+		playerViewController.viewModel.recording.value = recording
+		playerViewController.navigationItem.leftBarButtonItem = rootViewController.displayModeButtonItem
+		playerViewController.navigationItem.leftItemsSupplementBackButton = true
+		rootViewController.showDetailViewController(playerNavigationController, sender: nil)
+		return .none
 	}
 
 }

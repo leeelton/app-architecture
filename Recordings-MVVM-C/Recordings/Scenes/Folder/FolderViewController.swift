@@ -73,7 +73,7 @@ final class FolderViewController: UITableViewController {
 		tableView
 			.rx
 			.modelSelected(Item.self)
-			.subscribe(onNext: { [unowned self] in self.delegate?.didSelect($0) })
+			.bind(to: viewModel.didSelectItemObserver)
 			.disposed(by: disposeBag)
 
 		addFolderBarButtonItem
