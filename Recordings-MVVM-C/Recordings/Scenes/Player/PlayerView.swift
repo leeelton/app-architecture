@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PlayView: UIView {
+final class PlayerView: UIView {
 
 	let contentStackView = UIStackView(axis: .vertical, alignment: .fill, distribution: .fill, spacing: 30.0)
 	let noRecordingLabel = UILabel()

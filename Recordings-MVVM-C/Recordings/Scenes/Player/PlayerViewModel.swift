@@ -3,12 +3,11 @@ import RxSwift
 import RxCocoa
 import AVFoundation
 
-class PlayViewModel {
+class PlayerViewModel {
 	let recording: Variable<Recording?> = Variable(nil)
 	let playState: Observable<Player.State?>
 	let togglePlay = PublishSubject<()>()
 	let setProgress = PublishSubject<TimeInterval>()
-	
 
 	private let recordingUntilDeleted: Observable<Recording?>
 	

@@ -10,21 +10,21 @@ extension Reactive where Base: UISlider {
 	}
 }
 
-final class PlayViewController: UIViewController {
+final class PlayerViewController: UIViewController {
 
-	var playView: PlayView!
-	let viewModel = PlayViewModel()
+	var playerView: PlayerView!
+	let viewModel = PlayerViewModel()
 	let disposeBag = DisposeBag()
 
 	override func loadView() {
-		let playView = PlayView(frame: UIScreen.main.bounds)
+		let playView = PlayerView(frame: UIScreen.main.bounds)
 		view = playView
-		self.playView = playView
+		self.playerView = playView
 	}
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		playView.nameTextField.delegate = self
+		playerView.nameTextField.delegate = self
 		setupBindings()
 	}
 
@@ -34,47 +34,47 @@ final class PlayViewController: UIViewController {
 			.disposed(by: disposeBag)
 
 		viewModel.noRecording
-			.bind(to: playView.activeItemElementsStackView.rx.isHidden)
+			.bind(to: playerView.activeItemElementsStackView.rx.isHidden)
 			.disposed(by: disposeBag)
 
 		viewModel.hasRecording
-			.bind(to: playView.noRecordingLabel.rx.isHidden)
+			.bind(to: playerView.noRecordingLabel.rx.isHidden)
 			.disposed(by: disposeBag)
 
 		viewModel.timeLabelText
-			.bind(to: playView.progressLabel.rx.text)
+			.bind(to: playerView.progressLabel.rx.text)
 			.disposed(by: disposeBag)
 
 		viewModel.durationLabelText
-			.bind(to: playView.durationLabel.rx.text)
+			.bind(to: playerView.durationLabel.rx.text)
 			.disposed(by: disposeBag)
 
 		viewModel.sliderDuration
-			.bind(to: playView.progressSlider.rx.maximumValue)
+			.bind(to: playerView.progressSlider.rx.maximumValue)
 			.disposed(by: disposeBag)
 
 		viewModel.sliderProgress
-			.bind(to: playView.progressSlider.rx.value)
+			.bind(to: playerView.progressSlider.rx.value)
 			.disposed(by: disposeBag)
 
 		viewModel.playButtonTitle
-			.bind(to: playView.playButton.rx.title(for: .normal))
+			.bind(to: playerView.playButton.rx.title(for: .normal))
 			.disposed(by: disposeBag)
 
 		viewModel.nameText
-			.bind(to: playView.nameTextField.rx.text)
+			.bind(to: playerView.nameTextField.rx.text)
 			.disposed(by: disposeBag)
 
-		playView.progressSlider
+		playerView.progressSlider
 			.rx
 			.controlEvent([.valueChanged])
 			.subscribe(onNext: { [unowned self] (_) in
-				let s = self.playView.progressSlider
+				let s = self.playerView.progressSlider
 				self.viewModel.setProgress.onNext(TimeInterval(s.value))
 			})
 			.disposed(by: disposeBag)
 
-		playView.playButton
+		playerView.playButton
 			.rx
 			.tap
 			.bind(to: viewModel.togglePlay)
@@ -96,7 +96,7 @@ final class PlayViewController: UIViewController {
 	}
 }
 
-extension PlayViewController: UITextFieldDelegate {
+extension PlayerViewController: UITextFieldDelegate {
 	func textFieldDidEndEditing(_ textField: UITextField) {
 		viewModel.nameChanged(textField.text)
 	}

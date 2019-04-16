@@ -1,15 +1,15 @@
-import Foundation
 import RxSwift
 import RxDataSources
 import RxCocoa
 import RxFlow
 
 final class FolderViewModel: Stepper {
+	private let disposeBag = DisposeBag()
 
 	// MARK: - Inputs
 
 	lazy var deleteObserver: AnyObserver<Item> = { _deletePublishSubject.asObserver() }()
-	lazy var createFolderObserver: AnyObserver<String> = { _createFolderPublishSubject.asObserver() }()
+	lazy var createFolderObserver: AnyObserver<String?> = { _createFolderPublishSubject.asObserver() }()
 	lazy var createRecordingObserver: AnyObserver<Void> = { _createRecordingPublishSubject.asObserver() }()
 	lazy var didSelectItemObserver : AnyObserver<Item> = { _didSelectItemPublishSubject.asObserver() }()
 
@@ -46,16 +46,10 @@ final class FolderViewModel: Stepper {
 		return "\((item is Recording) ? "🔊" : "📁")  \(item.name)"
 	}
 
-	// MARK: - Navigation
+	let steps = PublishRelay<Step>()
 
-	lazy var goToRecordingObservable: Observable<Folder?> = {
-		return _createFolderPublishSubject
-			.withLatestFrom(folderObservable)
-	}()
-
-	private let disposeBag = DisposeBag()
 	private let _deletePublishSubject = PublishSubject<Item>()
-	private let _createFolderPublishSubject = PublishSubject<String>()
+	private let _createFolderPublishSubject = PublishSubject<String?>()
 	private let _createRecordingPublishSubject = PublishSubject<Void>()
 	private let _folderBehaviorSubject: BehaviorSubject<Folder>
 	private let _didSelectItemPublishSubject = PublishSubject<Item>()
@@ -78,6 +72,7 @@ final class FolderViewModel: Stepper {
 		_createFolderPublishSubject
 			.withLatestFrom(_folderBehaviorSubject) { ($0, $1) }
 			.subscribe(onNext: { (name, folder) in
+				guard let name = name else { return }
 				let newFolder = Folder(name: name, uuid: UUID())
 				folder.add(newFolder)
 			})
@@ -98,18 +93,14 @@ final class FolderViewModel: Stepper {
 			.map { FolderStep.recording($0) }
 			.bind(to: steps)
 			.disposed(by: disposeBag)
+
+		_createRecordingPublishSubject
+			.withLatestFrom(folderObservable)
+			.filter { $0 != nil }
+			.map { FolderStep.makeRecording(folder: $0!) }
+			.bind(to: steps)
+			.disposed(by: disposeBag)
 	}
-
-	// TODO: Remove this
-	func create(folderNamed name: String?) {
-		guard let s = name else { return }
-		let newFolder = Folder(name: s, uuid: UUID())
-		folder.value.add(newFolder)
-	}
-
-	// RxFlow
-
-	let steps = PublishRelay<Step>()
 }
 
 fileprivate extension String {
