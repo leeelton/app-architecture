@@ -12,18 +12,14 @@
 		26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63175225CE650001099A7 /* RecordingTableViewCell.swift */; };
 		26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63177225CECD5001099A7 /* FolderTableViewCell.swift */; };
 		26CC3E4A22610AC30099044B /* PlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC3E4922610AC30099044B /* PlayView.swift */; };
-		26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 26FBA741225FAFEE0076F43E /* RxFlow.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		26FBA748225FB21C0076F43E /* RootSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA747225FB21C0076F43E /* RootSplitViewController.swift */; };
 		26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA74E225FB5540076F43E /* RecordingView.swift */; };
 		26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA750225FB7C70076F43E /* UIColor+Extension.swift */; };
 		830C5ACE1F011A7E004EFBA7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */; };
 		835F5B741F39C581006B1400 /* empty.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 835F5B731F39C269006B1400 /* empty.m4a */; };
+		8BB49D7ABFC52DC3058C5412 /* Pods_Recordings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D727CBFD1BF8100440E2C9AD /* Pods_Recordings.framework */; };
 		C90B60971EC00343008C9347 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = C90B60961EC00343008C9347 /* Store.swift */; };
 		C95FF2812038198B005869CF /* FolderViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C95FF2802038198B005869CF /* FolderViewControllerTests.swift */; };
-		C95FF28220390BA7005869CF /* Differentiator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E89B501FCBC67100527150 /* Differentiator.framework */; };
-		C95FF28320390BA7005869CF /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E89B311FCBC49800527150 /* RxCocoa.framework */; };
-		C95FF28420390BA7005869CF /* RxDataSources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E89B2F1FCBC49800527150 /* RxDataSources.framework */; };
-		C95FF28520390BA7005869CF /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E89B301FCBC49800527150 /* RxSwift.framework */; };
 		C9CFB02E1EC085CF004529FC /* Recorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CFB02D1EC085CF004529FC /* Recorder.swift */; };
 		C9CFB0301EC08ACF004529FC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CFB02F1EC08ACF004529FC /* Utilities.swift */; };
 		C9CFB0321EC08D7E004529FC /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CFB0311EC08D7E004529FC /* Player.swift */; };
@@ -31,10 +27,6 @@
 		C9CFB0371EC0945B004529FC /* Recording.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CFB0361EC0945B004529FC /* Recording.swift */; };
 		C9CFB0391EC09464004529FC /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9CFB0381EC09464004529FC /* Folder.swift */; };
 		C9D1859C1EC02D830028C0FA /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D1859B1EC02D830028C0FA /* RecordViewController.swift */; };
-		C9E89B391FCBC4AD00527150 /* RxDataSources.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9E89B361FCBC4AC00527150 /* RxDataSources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9E89B3A1FCBC4AD00527150 /* RxSwift.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9E89B371FCBC4AC00527150 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9E89B3B1FCBC4AD00527150 /* RxCocoa.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9E89B381FCBC4AD00527150 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		C9E89B511FCBC67100527150 /* Differentiator.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = C9E89B501FCBC67100527150 /* Differentiator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C9EB56C11EAE33C1000EC5F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB56C01EAE33C1000EC5F4 /* AppDelegate.swift */; };
 		C9EB56C31EAE33C1000EC5F4 /* FolderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB56C21EAE33C1000EC5F4 /* FolderViewController.swift */; };
 		C9EB56C51EAE33C1000EC5F4 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9EB56C41EAE33C1000EC5F4 /* PlayViewController.swift */; };
@@ -45,6 +37,7 @@
 		C9F90CDD1FD5009D0054FEF4 /* FolderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F90CDC1FD5009D0054FEF4 /* FolderViewModel.swift */; };
 		C9F90CDF1FD500A80054FEF4 /* PlayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F90CDE1FD500A80054FEF4 /* PlayViewModel.swift */; };
 		C9F90CE11FD500B50054FEF4 /* RecordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9F90CE01FD500B50054FEF4 /* RecordViewModel.swift */; };
+		E0F7AAEF8D884E3DB8D72E36 /* Pods_RecordingsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0301CD6F2847019E46968887 /* Pods_RecordingsTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,31 +57,29 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				26FBA745225FB08B0076F43E /* RxFlow.framework in CopyFiles */,
-				C9E89B391FCBC4AD00527150 /* RxDataSources.framework in CopyFiles */,
-				C9E89B3A1FCBC4AD00527150 /* RxSwift.framework in CopyFiles */,
-				C9E89B3B1FCBC4AD00527150 /* RxCocoa.framework in CopyFiles */,
-				C9E89B511FCBC67100527150 /* Differentiator.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0301CD6F2847019E46968887 /* Pods_RecordingsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RecordingsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26018AE0225D111900D065A5 /* FolderCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderCoordinator.swift; sourceTree = "<group>"; };
 		266FC646225FAD50008A96F2 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		26A63175225CE650001099A7 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		26A63177225CECD5001099A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
+		26AB8F7569AFDD125FB2609B /* Pods-Recordings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recordings.debug.xcconfig"; path = "Target Support Files/Pods-Recordings/Pods-Recordings.debug.xcconfig"; sourceTree = "<group>"; };
 		26CC3E4922610AC30099044B /* PlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayView.swift; sourceTree = "<group>"; };
-		26FBA741225FAFEE0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
-		26FBA743225FB03F0076F43E /* RxFlow.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxFlow.framework; path = Carthage/Build/iOS/RxFlow.framework; sourceTree = "<group>"; };
 		26FBA747225FB21C0076F43E /* RootSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootSplitViewController.swift; sourceTree = "<group>"; };
 		26FBA74E225FB5540076F43E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		26FBA750225FB7C70076F43E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		36343270FEEB0749100AB5C4 /* Pods-RecordingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordingsTests.debug.xcconfig"; path = "Target Support Files/Pods-RecordingsTests/Pods-RecordingsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		44927FB2C4263A9448392E82 /* Pods-RecordingsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordingsTests.release.xcconfig"; path = "Target Support Files/Pods-RecordingsTests/Pods-RecordingsTests.release.xcconfig"; sourceTree = "<group>"; };
 		830C5ACD1F011A7E004EFBA7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		835F5B731F39C269006B1400 /* empty.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = empty.m4a; sourceTree = "<group>"; };
 		8379F0C21F2F193F00CDB032 /* RecordingsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RecordingsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8379F0C61F2F193F00CDB032 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF78919891C758A7186469AA /* Pods-Recordings.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recordings.release.xcconfig"; path = "Target Support Files/Pods-Recordings/Pods-Recordings.release.xcconfig"; sourceTree = "<group>"; };
 		C90B60961EC00343008C9347 /* Store.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		C95FF2802038198B005869CF /* FolderViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderViewControllerTests.swift; sourceTree = "<group>"; };
 		C9CFB02D1EC085CF004529FC /* Recorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recorder.swift; sourceTree = "<group>"; };
@@ -98,15 +89,6 @@
 		C9CFB0361EC0945B004529FC /* Recording.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recording.swift; sourceTree = "<group>"; };
 		C9CFB0381EC09464004529FC /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
 		C9D1859B1EC02D830028C0FA /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
-		C9E89B2B1FCBBC2500527150 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E89B2D1FCBBC2C00527150 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C9E89B2F1FCBC49800527150 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
-		C9E89B301FCBC49800527150 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		C9E89B311FCBC49800527150 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		C9E89B361FCBC4AC00527150 /* RxDataSources.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxDataSources.framework; path = Carthage/Build/iOS/RxDataSources.framework; sourceTree = "<group>"; };
-		C9E89B371FCBC4AC00527150 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		C9E89B381FCBC4AD00527150 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		C9E89B501FCBC67100527150 /* Differentiator.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Differentiator.framework; path = Carthage/Build/iOS/Differentiator.framework; sourceTree = "<group>"; };
 		C9EB56BD1EAE33C1000EC5F4 /* Recordings.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Recordings.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9EB56C01EAE33C1000EC5F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9EB56C21EAE33C1000EC5F4 /* FolderViewController.swift */ = {isa = PBXFileReference; indentWidth = 3; lastKnownFileType = sourcecode.swift; path = FolderViewController.swift; sourceTree = "<group>"; tabWidth = 3; usesTabs = 1; };
@@ -119,6 +101,7 @@
 		C9F90CDC1FD5009D0054FEF4 /* FolderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderViewModel.swift; sourceTree = "<group>"; };
 		C9F90CDE1FD500A80054FEF4 /* PlayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewModel.swift; sourceTree = "<group>"; };
 		C9F90CE01FD500B50054FEF4 /* RecordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewModel.swift; sourceTree = "<group>"; };
+		D727CBFD1BF8100440E2C9AD /* Pods_Recordings.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Recordings.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C95FF28220390BA7005869CF /* Differentiator.framework in Frameworks */,
-				C95FF28320390BA7005869CF /* RxCocoa.framework in Frameworks */,
-				C95FF28420390BA7005869CF /* RxDataSources.framework in Frameworks */,
-				C95FF28520390BA7005869CF /* RxSwift.framework in Frameworks */,
+				E0F7AAEF8D884E3DB8D72E36 /* Pods_RecordingsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,6 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB49D7ABFC52DC3058C5412 /* Pods_Recordings.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,6 +211,15 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		3906DFF3B1EEC3A809515051 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D727CBFD1BF8100440E2C9AD /* Pods_Recordings.framework */,
+				0301CD6F2847019E46968887 /* Pods_RecordingsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8379F0C31F2F193F00CDB032 /* RecordingsTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,31 +230,14 @@
 			path = RecordingsTests;
 			sourceTree = "<group>";
 		};
-		83AEA62C1F7A46280006D1FA /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				26FBA741225FAFEE0076F43E /* RxFlow.framework */,
-				C9E89B311FCBC49800527150 /* RxCocoa.framework */,
-				C9E89B2F1FCBC49800527150 /* RxDataSources.framework */,
-				C9E89B301FCBC49800527150 /* RxSwift.framework */,
-				C9E89B2B1FCBBC2500527150 /* RxSwift.framework */,
-				C9E89B2D1FCBBC2C00527150 /* RxCocoa.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		C9EB56B41EAE33C1000EC5F4 = {
 			isa = PBXGroup;
 			children = (
-				26FBA743225FB03F0076F43E /* RxFlow.framework */,
-				C9E89B381FCBC4AD00527150 /* RxCocoa.framework */,
-				C9E89B361FCBC4AC00527150 /* RxDataSources.framework */,
-				C9E89B501FCBC67100527150 /* Differentiator.framework */,
-				C9E89B371FCBC4AC00527150 /* RxSwift.framework */,
 				C9EB56BF1EAE33C1000EC5F4 /* Recordings */,
 				8379F0C31F2F193F00CDB032 /* RecordingsTests */,
 				C9EB56BE1EAE33C1000EC5F4 /* Products */,
-				83AEA62C1F7A46280006D1FA /* Frameworks */,
+				FF5471C4E755F18DD4063074 /* Pods */,
+				3906DFF3B1EEC3A809515051 /* Frameworks */,
 			);
 			indentWidth = 3;
 			sourceTree = "<group>";
@@ -294,6 +267,18 @@
 			path = Recordings;
 			sourceTree = "<group>";
 		};
+		FF5471C4E755F18DD4063074 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				26AB8F7569AFDD125FB2609B /* Pods-Recordings.debug.xcconfig */,
+				BF78919891C758A7186469AA /* Pods-Recordings.release.xcconfig */,
+				36343270FEEB0749100AB5C4 /* Pods-RecordingsTests.debug.xcconfig */,
+				44927FB2C4263A9448392E82 /* Pods-RecordingsTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -301,9 +286,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8379F0CB1F2F193F00CDB032 /* Build configuration list for PBXNativeTarget "RecordingsTests" */;
 			buildPhases = (
+				611E23FA0D7D1B40B627DB4C /* [CP] Check Pods Manifest.lock */,
 				8379F0BE1F2F193F00CDB032 /* Sources */,
 				8379F0BF1F2F193F00CDB032 /* Frameworks */,
 				8379F0C01F2F193F00CDB032 /* Resources */,
+				69CC617E58A8C5722F40C5C8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -319,10 +306,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9EB56D11EAE33C1000EC5F4 /* Build configuration list for PBXNativeTarget "Recordings" */;
 			buildPhases = (
+				1D04CDC20354531D39350E1E /* [CP] Check Pods Manifest.lock */,
 				C9EB56B91EAE33C1000EC5F4 /* Sources */,
 				C9EB56BA1EAE33C1000EC5F4 /* Frameworks */,
 				C9EB56BB1EAE33C1000EC5F4 /* Resources */,
 				C9E89B351FCBC4A200527150 /* CopyFiles */,
+				FE6C35BF5F09F9334E57BC43 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -394,6 +383,113 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1D04CDC20354531D39350E1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Recordings-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		611E23FA0D7D1B40B627DB4C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RecordingsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		69CC617E58A8C5722F40C5C8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RecordingsTests/Pods-RecordingsTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework",
+				"${BUILT_PRODUCTS_DIR}/RxTest/RxTest.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxBlocking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxTest.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RecordingsTests/Pods-RecordingsTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE6C35BF5F09F9334E57BC43 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Recordings/Pods-Recordings-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Recordings/Pods-Recordings-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8379F0BE1F2F193F00CDB032 /* Sources */ = {
@@ -467,6 +563,7 @@
 /* Begin XCBuildConfiguration section */
 		8379F0C91F2F193F00CDB032 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 36343270FEEB0749100AB5C4 /* Pods-RecordingsTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -474,10 +571,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 58PSC9526Y;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RecordingsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -493,6 +586,7 @@
 		};
 		8379F0CA1F2F193F00CDB032 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44927FB2C4263A9448392E82 /* Pods-RecordingsTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -500,10 +594,6 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEVELOPMENT_TEAM = 58PSC9526Y;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = RecordingsTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -631,13 +721,10 @@
 		};
 		C9EB56D21EAE33C1000EC5F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 26AB8F7569AFDD125FB2609B /* Pods-Recordings.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Recordings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.objc.Recordings-MVVM-C";
@@ -648,13 +735,10 @@
 		};
 		C9EB56D31EAE33C1000EC5F4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF78919891C758A7186469AA /* Pods-Recordings.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Recordings/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "io.objc.Recordings-MVVM-C";
