@@ -11,6 +11,7 @@ final class FolderViewModel: Stepper {
 	lazy var deleteObserver: AnyObserver<Item> = { _deletePublishSubject.asObserver() }()
 	lazy var createFolderObserver: AnyObserver<String> = { _createFolderPublishSubject.asObserver() }()
 	lazy var createRecordingObserver: AnyObserver<Void> = { _createRecordingPublishSubject.asObserver() }()
+	lazy var didSelectItemObserver : AnyObserver<Item> = { _didSelectItemPublishSubject.asObserver() }()
 
 	// MARK: - Outputs
 
@@ -57,10 +58,13 @@ final class FolderViewModel: Stepper {
 	private let _createFolderPublishSubject = PublishSubject<String>()
 	private let _createRecordingPublishSubject = PublishSubject<Void>()
 	private let _folderBehaviorSubject: BehaviorSubject<Folder>
+	private let _didSelectItemPublishSubject = PublishSubject<Item>()
 
 	init(initialFolder: Folder = Store.shared.rootFolder) {
 		_folderBehaviorSubject = BehaviorSubject(value: initialFolder)
 		folder = Variable(initialFolder)
+		setupBindings()
+		setupFlowBindings()
 	}
 
 	private func setupBindings() {
@@ -77,6 +81,22 @@ final class FolderViewModel: Stepper {
 				let newFolder = Folder(name: name, uuid: UUID())
 				folder.add(newFolder)
 			})
+			.disposed(by: disposeBag)
+	}
+
+	private func setupFlowBindings() {
+		_didSelectItemPublishSubject
+			.filter { $0 is Folder }
+			.map { $0 as! Folder }
+			.map { FolderStep.folder(initialFolder: $0) }
+			.bind(to: steps)
+			.disposed(by: disposeBag)
+
+		_didSelectItemPublishSubject
+			.filter { $0 is Recording }
+			.map { $0 as! Recording }
+			.map { FolderStep.recording($0) }
+			.bind(to: steps)
 			.disposed(by: disposeBag)
 	}
 
