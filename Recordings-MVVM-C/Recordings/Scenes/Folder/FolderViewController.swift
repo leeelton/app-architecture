@@ -46,6 +46,7 @@ final class FolderViewController: UITableViewController {
 	private func setupTableView() {
 		tableView.register(RecordingTableViewCell.self, forCellReuseIdentifier: RecordingTableViewCell.reuseIdentifier)
 		tableView.register(FolderTableViewCell.self, forCellReuseIdentifier: FolderTableViewCell.reuseIdentifier)
+		tableView.dataSource = nil
 	}
 
 	private func setupNavigationBar() {

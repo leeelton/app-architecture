@@ -11,6 +11,10 @@ import RxFlow
 import RxCocoa
 import UIKit
 
+enum AppSteps: Step {
+	case home
+}
+
 class AppFlow: Flow {
 
 	var root: Presentable {
@@ -24,6 +28,9 @@ class AppFlow: Flow {
 		folderNavigationController.navigationBar.titleTextAttributes = [
 			NSAttributedString.Key.foregroundColor: UIColor.white
 		]
+		folderNavigationController.navigationBar.barTintColor = UIColor.bloo
+		folderNavigationController.navigationBar.isTranslucent = false
+		folderNavigationController.navigationBar.tintColor = UIColor.oranji
 		splitViewController.viewControllers = [folderNavigationController]
 		return splitViewController
 	}()
@@ -38,17 +45,16 @@ class AppFlow: Flow {
 		guard let step = step as? AppSteps else { return .none }
 		switch step {
 		case .home:
-			return navigateToFolder()
+			return navigateToHome()
 		}
 	}
 
-	private func navigateToFolder() -> FlowContributors {
-		guard let folderViewController = rootViewController.children.first as? FolderViewController else { return .none }
+	private func navigateToHome() -> FlowContributors {
+		guard let folderViewController = rootViewController.children.first?.children.first as? FolderViewController else { return .none }
 		rootViewController.delegate = self
 		rootViewController.preferredDisplayMode = .allVisible
 		window.rootViewController = rootViewController
 		window.makeKeyAndVisible()
-
 		return .one(flowContributor: .contribute(withNextPresentable: folderViewController, withNextStepper: folderViewController.viewModel))
 	}
 
@@ -65,15 +71,7 @@ extension AppFlow: UISplitViewControllerDelegate {
 	}
 }
 
-enum AppSteps: Step {
-	case home
-}
-
 class AppStepper: Stepper {
 	let steps = PublishRelay<Step>()
-
-	init() {
-		steps.accept(AppSteps.home)
-	}
-
+	let initialStep: Step = AppSteps.home
 }
