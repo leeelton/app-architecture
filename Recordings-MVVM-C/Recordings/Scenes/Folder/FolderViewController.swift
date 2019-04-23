@@ -11,7 +11,7 @@ final class FolderViewController: UITableViewController {
 	var viewModel = FolderViewModel()
 	private let disposeBag = DisposeBag()
 
-	// MARK: Lifecycle
+	// MARK: - Lifecycle
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -34,7 +34,7 @@ final class FolderViewController: UITableViewController {
 		)
 	}
 
-	// MARK: Setup
+	// MARK: - Setup
 
 	private func setupTableView() {
 		tableView.register(RecordingTableViewCell.self, forCellReuseIdentifier: RecordingTableViewCell.reuseIdentifier)
@@ -82,27 +82,43 @@ final class FolderViewController: UITableViewController {
 			.disposed(by: disposeBag)
 	}
 	
-	// MARK: UIStateRestoring
+	// MARK: - UIStateRestoring
 
 	override func encodeRestorableState(with coder: NSCoder) {
+		viewModel
+			.folderObservable
+			.take(1)
+			.debug("Encoding Folder")
+			.subscribe(onNext: { (folder) in
+				coder.encode(folder?.uuidPath, forKey: .uuidPathKey)
+			})
+			.disposed(by: disposeBag)
 		super.encodeRestorableState(with: coder)
-		coder.encode(viewModel.folder.value.uuidPath, forKey: .uuidPathKey)
 	}
 
 	override func decodeRestorableState(with coder: NSCoder) {
-		super.decodeRestorableState(with: coder)
 		if let uuidPath = coder.decodeObject(forKey: .uuidPathKey) as? [UUID], let folder = Store.shared.item(atUUIDPath: uuidPath) as? Folder {
-			self.viewModel.folder.value = folder
+			self.viewModel.decodeRestoredFolderObserver.on(.next(folder))
 		} else {
 			if var controllers = navigationController?.viewControllers, let index = controllers.firstIndex(where: { $0 === self }) {
 				controllers.remove(at: index)
 				navigationController?.viewControllers = controllers
 			}
 		}
+		super.decodeRestorableState(with: coder)
 	}
 }
 
-private extension Reactive where Base: FolderViewController {
+extension FolderViewController: UIViewControllerRestoration {
+	static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
+		let vc = FolderViewController(style: .grouped)
+		vc.restorationIdentifier = identifierComponents.last
+		vc.restorationClass = FolderViewController.self
+		return vc
+	}
+}
+
+fileprivate extension Reactive where Base: FolderViewController {
 	var modalTextAlert: Binder<Void> {
 		return Binder<Void>(self.base, binding: { (folderViewController, _) in
 			folderViewController.modalTextAlert(title: .createFolder, accept: .create, placeholder: .folderName) { string in

@@ -36,6 +36,8 @@ final class FolderFlow: Flow {
 			folderViewController.viewModel = FolderViewModel(initialFolder: initialFolder)
 			folderViewController.navigationItem.leftItemsSupplementBackButton = true
 			folderViewController.navigationItem.leftBarButtonItem = folderViewController.editButtonItem
+			folderViewController.restorationIdentifier = "FolderViewController"
+			folderViewController.restorationClass = FolderViewController.self
 			rootViewController.pushViewController(folderViewController, animated: true)
 			return .one(flowContributor: .contribute(withNextPresentable: folderViewController, withNextStepper: folderViewController.viewModel))
 		case .recording(let recording):

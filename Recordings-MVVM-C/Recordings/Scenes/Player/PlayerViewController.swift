@@ -24,6 +24,8 @@ final class PlayerViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		restorationIdentifier = className
+		restorationClass = PlayerViewController.self
 		playerView.nameTextField.delegate = self
 		setupBindings()
 	}
@@ -84,15 +86,15 @@ final class PlayerViewController: UIViewController {
 	// MARK: UIStateRestoring
 	
 	override func encodeRestorableState(with coder: NSCoder) {
-		super.encodeRestorableState(with: coder)
 		coder.encode(viewModel.recording.value?.uuidPath, forKey: .uuidPathKey)
+		super.encodeRestorableState(with: coder)
 	}
-	
+
 	override func decodeRestorableState(with coder: NSCoder) {
-		super.decodeRestorableState(with: coder)
 		if let uuidPath = coder.decodeObject(forKey: .uuidPathKey) as? [UUID], let recording = Store.shared.item(atUUIDPath: uuidPath) as? Recording {
 			self.viewModel.recording.value = recording
 		}
+		super.decodeRestorableState(with: coder)
 	}
 }
 
@@ -105,6 +107,15 @@ extension PlayerViewController: UITextFieldDelegate {
 		textField.resignFirstResponder()
 		return true
 	}
+}
+
+extension PlayerViewController: UIViewControllerRestoration {
+
+	static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
+		return PlayerViewController()
+	}
+
+
 }
 
 fileprivate extension String {

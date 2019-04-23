@@ -11,12 +11,10 @@ final class FolderViewModel: Stepper {
 	lazy var deleteObserver: AnyObserver<Item> = { _deletePublishSubject.asObserver() }()
 	lazy var createFolderObserver: AnyObserver<String?> = { _createFolderPublishSubject.asObserver() }()
 	lazy var createRecordingObserver: AnyObserver<Void> = { _createRecordingPublishSubject.asObserver() }()
-	lazy var didSelectItemObserver : AnyObserver<Item> = { _didSelectItemPublishSubject.asObserver() }()
+	lazy var didSelectItemObserver: AnyObserver<Item> = { _didSelectItemPublishSubject.asObserver() }()
+	lazy var decodeRestoredFolderObserver: AnyObserver<Folder> = { _folderBehaviorSubject.asObserver() }()
 
 	// MARK: - Outputs
-
-	// TODO: Remove this Variable
-	let folder: Variable<Folder>
 
 	lazy var folderObservable: Observable<Folder?> = {
 		return _folderBehaviorSubject
@@ -25,7 +23,8 @@ final class FolderViewModel: Stepper {
 					.concat(currentFolder.changeObservable.map { _ in currentFolder })
 					.takeUntil(currentFolder.deletedObservable)
 					.concat(Observable.just(nil))
-			}.share(replay: 1)
+			}
+			.share(replay: 1)
 	}()
 
 	var navigationTitleObservable: Observable<String> {
@@ -36,10 +35,11 @@ final class FolderViewModel: Stepper {
 	}
 
 	var folderContentsObservable: Observable<[AnimatableSectionModel<Int, Item>]> {
-		return folderObservable.map { folder in
-			guard let f = folder else { return [AnimatableSectionModel(model: 0, items: [])] }
-			return [AnimatableSectionModel(model: 0, items: f.contents)]
-		}
+		return folderObservable
+			.map { folder in
+				guard let f = folder else { return [AnimatableSectionModel(model: 0, items: [])] }
+				return [AnimatableSectionModel(model: 0, items: f.contents)]
+			}
 	}
 
 	static func text(for item: Item) -> String {
@@ -56,7 +56,6 @@ final class FolderViewModel: Stepper {
 
 	init(initialFolder: Folder = Store.shared.rootFolder) {
 		_folderBehaviorSubject = BehaviorSubject(value: initialFolder)
-		folder = Variable(initialFolder)
 		setupBindings()
 		setupFlowBindings()
 	}

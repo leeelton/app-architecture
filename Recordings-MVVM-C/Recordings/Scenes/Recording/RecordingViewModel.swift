@@ -39,10 +39,10 @@ final class RecordingViewModel: Stepper {
 
 	private func setupBindings() {
 		_saveRecordingWithTitlePublishSubject
-			.subscribe(onNext: { [unowned self] (title) in
+			.flatMapLatest { [unowned self] (title) -> Observable<Void> in
 				self.saveRecording(title: title)
-				self._recordingFinishedPublishSubject.onNext(())
-			})
+			}
+			.bind(to: _recordingFinishedPublishSubject)
 			.disposed(by: disposeBag)
 	}
 
@@ -53,12 +53,13 @@ final class RecordingViewModel: Stepper {
 			.disposed(by: disposeBag)
 	}
 
-	private func saveRecording(title: String?) {
+	private func saveRecording(title: String?) -> Observable<Void> {
 		guard let title = title else {
 			recording.deleted()
-			return
+			return Observable.just(Void())
 		}
 		recording.setName(title)
 		folder?.add(recording)
+		return Observable.just(Void())
 	}
 }

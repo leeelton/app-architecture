@@ -21,11 +21,12 @@ class AppFlow: Flow {
 		return rootViewController
 	}
 
-	private let rootViewController = UISplitViewController()
+	private let rootViewController: UISplitViewController
 	private let window: UIWindow
 
 	init(window: UIWindow) {
 		self.window = window
+		rootViewController = UISplitViewController()
 	}
 
 	func navigate(to step: Step) -> FlowContributors {
@@ -41,17 +42,13 @@ class AppFlow: Flow {
 	private func navigateToHome() -> FlowContributors {
 		let folderViewController = FolderViewController(style: .plain)
 		let folderNavigationController = UINavigationController(rootViewController: folderViewController)
-		folderNavigationController.navigationBar.titleTextAttributes = [
-			NSAttributedString.Key.foregroundColor: UIColor.white
-		]
-		folderNavigationController.navigationBar.barTintColor = UIColor.bloo
-		folderNavigationController.navigationBar.isTranslucent = false
-		folderNavigationController.navigationBar.tintColor = UIColor.oranji
 		folderViewController.navigationItem.leftItemsSupplementBackButton = true
 		folderViewController.navigationItem.leftBarButtonItem = folderViewController.editButtonItem
+		folderNavigationController.setupNavController()
+		folderViewController.restorationIdentifier = "HomeFolderViewController"
 		rootViewController.viewControllers = [folderNavigationController]
+		rootViewController.setupSplitViewController()
 		rootViewController.delegate = self
-		rootViewController.preferredDisplayMode = .allVisible
 		window.rootViewController = rootViewController
 		window.makeKeyAndVisible()
 
@@ -71,10 +68,31 @@ class AppFlow: Flow {
 		playerViewController.viewModel.recording.value = recording
 		playerViewController.navigationItem.leftBarButtonItem = rootViewController.displayModeButtonItem
 		playerViewController.navigationItem.leftItemsSupplementBackButton = true
+		playerNavigationController.restorationIdentifier = "PlayerNC"
+		playerViewController.restorationIdentifier = "PlayerVC"
 		rootViewController.showDetailViewController(playerNavigationController, sender: nil)
 		return .none
 	}
 
+}
+
+fileprivate extension UISplitViewController {
+	func setupSplitViewController() {
+		self.restorationIdentifier = "RootSplitViewController"
+		self.preferredDisplayMode = .allVisible
+	}
+}
+
+fileprivate extension UINavigationController {
+	func setupNavController() {
+		self.navigationBar.titleTextAttributes = [
+			NSAttributedString.Key.foregroundColor: UIColor.white
+		]
+		self.navigationBar.barTintColor = UIColor.bloo
+		self.navigationBar.isTranslucent = false
+		self.navigationBar.tintColor = UIColor.oranji
+		self.restorationIdentifier = "FolderNavigationController"
+	}
 }
 
 extension AppFlow: UISplitViewControllerDelegate {
