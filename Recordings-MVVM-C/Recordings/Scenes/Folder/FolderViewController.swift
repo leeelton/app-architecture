@@ -88,7 +88,6 @@ final class FolderViewController: UITableViewController {
 		viewModel
 			.folderObservable
 			.take(1)
-			.debug("Encoding Folder")
 			.subscribe(onNext: { (folder) in
 				coder.encode(folder?.uuidPath, forKey: .uuidPathKey)
 			})

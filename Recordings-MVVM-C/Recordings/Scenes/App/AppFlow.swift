@@ -21,12 +21,11 @@ class AppFlow: Flow {
 		return rootViewController
 	}
 
-	private let rootViewController: UISplitViewController
+	private let rootViewController = RecordingsSplitViewController()
 	private let window: UIWindow
 
 	init(window: UIWindow) {
 		self.window = window
-		rootViewController = UISplitViewController()
 	}
 
 	func navigate(to step: Step) -> FlowContributors {
@@ -41,7 +40,7 @@ class AppFlow: Flow {
 
 	private func navigateToHome() -> FlowContributors {
 		let folderViewController = FolderViewController(style: .plain)
-		let folderNavigationController = UINavigationController(rootViewController: folderViewController)
+		let folderNavigationController = FolderNavigationController(rootViewController: folderViewController)
 		folderViewController.navigationItem.leftItemsSupplementBackButton = true
 		folderViewController.navigationItem.leftBarButtonItem = folderViewController.editButtonItem
 		folderNavigationController.setupNavController()
@@ -58,7 +57,7 @@ class AppFlow: Flow {
 
 	private func navigateToPlayer(recording: Recording) -> FlowContributors {
 		let playerViewController = PlayerViewController()
-		let playerNavigationController = UINavigationController(rootViewController: playerViewController)
+		let playerNavigationController = PlayerNavigationController(rootViewController: playerViewController)
 		playerNavigationController.navigationBar.titleTextAttributes = [
 			NSAttributedString.Key.foregroundColor: UIColor.white
 		]
@@ -68,8 +67,6 @@ class AppFlow: Flow {
 		playerViewController.viewModel.recording.value = recording
 		playerViewController.navigationItem.leftBarButtonItem = rootViewController.displayModeButtonItem
 		playerViewController.navigationItem.leftItemsSupplementBackButton = true
-		playerNavigationController.restorationIdentifier = "PlayerNC"
-		playerViewController.restorationIdentifier = "PlayerVC"
 		rootViewController.showDetailViewController(playerNavigationController, sender: nil)
 		return .none
 	}
@@ -78,7 +75,6 @@ class AppFlow: Flow {
 
 fileprivate extension UISplitViewController {
 	func setupSplitViewController() {
-		self.restorationIdentifier = "RootSplitViewController"
 		self.preferredDisplayMode = .allVisible
 	}
 }
@@ -91,7 +87,6 @@ fileprivate extension UINavigationController {
 		self.navigationBar.barTintColor = UIColor.bloo
 		self.navigationBar.isTranslucent = false
 		self.navigationBar.tintColor = UIColor.oranji
-		self.restorationIdentifier = "FolderNavigationController"
 	}
 }
 

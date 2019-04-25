@@ -11,7 +11,10 @@
 		266FC647225FAD50008A96F2 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 266FC646225FAD50008A96F2 /* AppFlow.swift */; };
 		26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63175225CE650001099A7 /* RecordingTableViewCell.swift */; };
 		26A63178225CECD5001099A7 /* FolderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A63177225CECD5001099A7 /* FolderTableViewCell.swift */; };
+		26BB3A0B226F56EF00C155D8 /* RecordingsSplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB3A0A226F56EF00C155D8 /* RecordingsSplitViewController.swift */; };
+		26BB3A0D226F709500C155D8 /* PlayerNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BB3A0C226F709500C155D8 /* PlayerNavigationController.swift */; };
 		26CC3E4A22610AC30099044B /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CC3E4922610AC30099044B /* PlayerView.swift */; };
+		26EB2FD8226F724600E8AD79 /* FolderNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26EB2FD7226F724600E8AD79 /* FolderNavigationController.swift */; };
 		26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA74E225FB5540076F43E /* RecordingView.swift */; };
 		26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26FBA750225FB7C70076F43E /* UIColor+Extension.swift */; };
 		835F5B741F39C581006B1400 /* empty.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 835F5B731F39C269006B1400 /* empty.m4a */; };
@@ -67,7 +70,10 @@
 		26A63175225CE650001099A7 /* RecordingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingTableViewCell.swift; sourceTree = "<group>"; };
 		26A63177225CECD5001099A7 /* FolderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderTableViewCell.swift; sourceTree = "<group>"; };
 		26AB8F7569AFDD125FB2609B /* Pods-Recordings.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Recordings.debug.xcconfig"; path = "Target Support Files/Pods-Recordings/Pods-Recordings.debug.xcconfig"; sourceTree = "<group>"; };
+		26BB3A0A226F56EF00C155D8 /* RecordingsSplitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingsSplitViewController.swift; sourceTree = "<group>"; };
+		26BB3A0C226F709500C155D8 /* PlayerNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerNavigationController.swift; sourceTree = "<group>"; };
 		26CC3E4922610AC30099044B /* PlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
+		26EB2FD7226F724600E8AD79 /* FolderNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderNavigationController.swift; sourceTree = "<group>"; };
 		26FBA74E225FB5540076F43E /* RecordingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordingView.swift; sourceTree = "<group>"; };
 		26FBA750225FB7C70076F43E /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		36343270FEEB0749100AB5C4 /* Pods-RecordingsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RecordingsTests.debug.xcconfig"; path = "Target Support Files/Pods-RecordingsTests/Pods-RecordingsTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				26018AE0225D111900D065A5 /* FolderFlow.swift */,
+				26EB2FD7226F724600E8AD79 /* FolderNavigationController.swift */,
 				C9EB56C21EAE33C1000EC5F4 /* FolderViewController.swift */,
 				C9F90CDC1FD5009D0054FEF4 /* FolderViewModel.swift */,
 				26A63177225CECD5001099A7 /* FolderTableViewCell.swift */,
@@ -144,6 +151,14 @@
 			name = Folder;
 			path = Recordings/Scenes/Folder;
 			sourceTree = SOURCE_ROOT;
+		};
+		26BB3A09226F56CB00C155D8 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				26BB3A0A226F56EF00C155D8 /* RecordingsSplitViewController.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
 		};
 		26FBA749225FB2BC0076F43E /* Recording */ = {
 			isa = PBXGroup;
@@ -158,6 +173,7 @@
 		26FBA74A225FB2EC0076F43E /* Player */ = {
 			isa = PBXGroup;
 			children = (
+				26BB3A0C226F709500C155D8 /* PlayerNavigationController.swift */,
 				26CC3E4922610AC30099044B /* PlayerView.swift */,
 				C9EB56C41EAE33C1000EC5F4 /* PlayerViewController.swift */,
 				C9F90CDE1FD500A80054FEF4 /* PlayerViewModel.swift */,
@@ -244,6 +260,7 @@
 			children = (
 				26A63173225CE57F001099A7 /* Scenes */,
 				26FBA74C225FB32E0076F43E /* Models */,
+				26BB3A09226F56CB00C155D8 /* Reusable */,
 				26FBA74D225FB3510076F43E /* Helpers */,
 				C9EB56C91EAE33C1000EC5F4 /* Assets.xcassets */,
 				C9EB56C61EAE33C1000EC5F4 /* Main.storyboard */,
@@ -489,7 +506,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26BB3A0D226F709500C155D8 /* PlayerNavigationController.swift in Sources */,
 				C9CFB02E1EC085CF004529FC /* Recorder.swift in Sources */,
+				26BB3A0B226F56EF00C155D8 /* RecordingsSplitViewController.swift in Sources */,
 				C9CFB0351EC09427004529FC /* Item.swift in Sources */,
 				C90B60971EC00343008C9347 /* Store.swift in Sources */,
 				26FBA74F225FB5550076F43E /* RecordingView.swift in Sources */,
@@ -507,6 +526,7 @@
 				26A63176225CE650001099A7 /* RecordingTableViewCell.swift in Sources */,
 				26FBA751225FB7C70076F43E /* UIColor+Extension.swift in Sources */,
 				26CC3E4A22610AC30099044B /* PlayerView.swift in Sources */,
+				26EB2FD8226F724600E8AD79 /* FolderNavigationController.swift in Sources */,
 				C9CFB0371EC0945B004529FC /* Recording.swift in Sources */,
 				C9F90CDF1FD500A80054FEF4 /* PlayerViewModel.swift in Sources */,
 				C9F90CDD1FD5009D0054FEF4 /* FolderViewModel.swift in Sources */,

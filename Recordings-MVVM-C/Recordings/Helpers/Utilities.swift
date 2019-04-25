@@ -35,19 +35,3 @@ fileprivate extension String {
 	static let ok = NSLocalizedString("OK", comment: "")
 	static let cancel = NSLocalizedString("Cancel", comment: "")
 }
-
-extension UINavigationController: UIViewControllerRestoration {
-	public static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
-		let navigationController = UINavigationController()
-		navigationController.restorationIdentifier = identifierComponents.last
-		return navigationController
-	}
-}
-
-extension UISplitViewController: UIViewControllerRestoration {
-	public static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
-		let splitViewController = UISplitViewController()
-		splitViewController.restorationIdentifier = identifierComponents.last
-		return splitViewController
-	}
-}

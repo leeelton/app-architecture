@@ -25,7 +25,7 @@ final class PlayerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		restorationIdentifier = className
-		restorationClass = PlayerViewController.self
+//		restorationClass = PlayerViewController.self
 		playerView.nameTextField.delegate = self
 		setupBindings()
 	}
@@ -112,7 +112,10 @@ extension PlayerViewController: UITextFieldDelegate {
 extension PlayerViewController: UIViewControllerRestoration {
 
 	static func viewController(withRestorationIdentifierPath identifierComponents: [String], coder: NSCoder) -> UIViewController? {
-		return PlayerViewController()
+		let playerViewController = PlayerViewController()
+		playerViewController.restorationIdentifier = identifierComponents.last
+//		playerViewController.restorationClass = PlayerViewController.self
+		return playerViewController
 	}
 
 
